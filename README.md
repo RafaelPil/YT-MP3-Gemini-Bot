@@ -29,19 +29,18 @@ cd telegram-mp3-bot
 
 ### 2. Configure Environment Variables:
 
-    ```
-    TELOXIDE_TOKEN=your_telegram_bot_token
-    RAPIDAPI_KEY=your_rapidapi_key
-    RAPIDAPI_USER=your_rapidapi_username
-    GEMINI_API_KEY=your_gemini_api_key
-    ```
+```bash
+TELOXIDE_TOKEN=your_telegram_bot_token
+RAPIDAPI_KEY=your_rapidapi_key
+RAPIDAPI_USER=your_rapidapi_username
+GEMINI_API_KEY=your_gemini_api_key
+```
 
 ### 3. Build and Run:
-
-    ```
-    cargo build --release
-    cargo run --release
-    ```
+```bash
+cargo build --release
+cargo run --release
+```
 
 ## Troubleshooting:
 
