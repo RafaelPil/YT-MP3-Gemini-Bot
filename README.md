@@ -54,4 +54,4 @@ cargo run --release
 
 ## Note:
 
-This project is for educational purposes only.
+- This project is for educational purposes only.
