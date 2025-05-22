@@ -112,11 +112,19 @@ async fn download_and_send(
 }
 
 fn extract_video_id(url: &str) -> Option<String> {
-    if url.contains("youtu.be/") {
-        url.split("youtu.be/").nth(1).and_then(|s| s.split('&').next()).map(|s| s.to_string())
-    } else if url.contains("v=") {
+    // Standard YouTube URL formats
+    if url.contains("youtube.com/watch?v=") {
         url.split("v=").nth(1).and_then(|s| s.split('&').next()).map(|s| s.to_string())
-    } else {
+    } else if url.contains("youtu.be/") {
+        url.split("youtu.be/").nth(1).and_then(|s| s.split('?').next()).map(|s| s.to_string())
+    }
+    // Your specific googleusercontent.com URLs (if they are still relevant/used by your API)
+    else if url.contains("youtu.be/") { // Assuming this is an example pattern from your API
+        url.split("youtu.be/").nth(1).and_then(|s| s.split('&').next()).map(|s| s.to_string())
+    } else if url.contains("youtube.com/watch?v=") { // Assuming this is another example pattern from your API
+        url.split("youtube.com/watch?v=").nth(1).and_then(|s| s.split('&').next()).map(|s| s.to_string())
+    }
+    else {
         None
     }
 }
