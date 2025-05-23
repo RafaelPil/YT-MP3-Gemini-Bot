@@ -52,29 +52,8 @@ impl UsageManager {
         let file = tokio::fs::File::open(path).await?.into_std().await;
         let reader = BufReader::new(file);
         // Deserialize with a custom visitor or default for new fields if file schema changes frequently
-        let mut usage: HashMap<i64, UserStats> = serde_json::from_reader(reader)
+        let usage: HashMap<i64, UserStats> = serde_json::from_reader(reader)
             .map_err(|e| io::Error::new(io::ErrorKind::InvalidData, format!("Failed to parse usage data: {}", e)))?;
-
-        // Handle potentially missing 'is_premium' field from old data files
-        // If you're starting fresh, you can remove this loop.
-        // It ensures old saved data without 'is_premium' gets `false` for it.
-        for (_chat_id, stats) in usage.iter_mut() {
-            // This line is prone to panic if `is_premium` is truly missing and Serde fails before this loop.
-            // A more robust way to handle schema evolution is with `#[serde(default)]` on the field
-            // or by using `flatten` or `untagged` enums for different versions of your struct.
-            // However, given the current context, if the `serde_json::from_reader` succeeds
-            // and simply omits `is_premium`, then this check would work.
-            // But if `from_reader` fails *because* the field is missing, this won't be reached.
-            // For a fresh start, deleting user_usage.json is the cleanest.
-            // If you *must* preserve old data AND handle missing fields robustly without manual deletion:
-            // You'd need to define an older version of UserStats, try to deserialize to it,
-            // then convert to the new UserStats, providing default values.
-            // Given your previous issue was a panic at `serde_json::from_reader`, this loop *won't* fix that.
-            // This loop is primarily for when `serde_json::from_reader` *succeeds* but produces a struct
-            // where `is_premium` might be `None` if it was an `Option<bool>` and missing.
-            // Since `is_premium` is a plain `bool`, it *must* be present or `serde_json` will error.
-            // The fix for "missing field `is_premium`" is still to delete the old file.
-        }
 
         log::info!("Loaded usage data from {}", path.display());
         Ok(usage)
