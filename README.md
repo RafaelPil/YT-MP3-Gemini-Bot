@@ -2,6 +2,8 @@
 
 A Rust-based Telegram bot that converts YouTube videos to MP3 and provides AI responses using Google's Gemini.
 
+---
+
 ## Features
 
 - 🎵 Convert YouTube videos to MP3
@@ -10,6 +12,8 @@ A Rust-based Telegram bot that converts YouTube videos to MP3 and provides AI re
 - 🔒 Secure file handling with temporary storage
 - 🔄 Real-time status updates
 
+---
+
 ## Prerequisites
 
 - [Rust](https://www.rust-lang.org/tools/install) (latest stable version)
@@ -17,6 +21,8 @@ A Rust-based Telegram bot that converts YouTube videos to MP3 and provides AI re
 - Telegram Bot Token from [@BotFather](https://t.me/BotFather)
 - [RapidAPI Key](https://rapidapi.com/ytjar/api/youtube-mp36)
 - [Google Gemini API Key](https://ai.google.dev/)
+
+---
 
 ## Installation and Running
 
@@ -27,6 +33,8 @@ git clone https://github.com/RafaelPil/YT-MP3-Gemini-Bot.git
 cd telegram-mp3-bot
 ```
 
+---
+
 ### 2. Configure Environment Variables:
 
 ```bash
@@ -36,6 +44,8 @@ RAPIDAPI_USER=your_rapidapi_username
 GEMINI_API_KEY=your_gemini_api_key
 ```
 
+---
+
 ### 3. Build and Run:
 
 ```bash
@@ -43,15 +53,25 @@ cargo build --release
 cargo run --release
 ```
 
+---
+
+## 🚧 Future Improvements
+
+---
+
 ## Troubleshooting:
 
 - 404 Errors: Verify your RapidAPI credentials
 - Conversion Failures: Check your API quota
 - Bot Not Responding: Validate all environment variables
 
+---
+
 ## Support:
 
 - For issues, please open an issue.
+
+---
 
 ## Note:
 
