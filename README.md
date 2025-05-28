@@ -23,7 +23,7 @@ A Rust-based Telegram bot that converts YouTube videos to MP3 and provides AI re
 ### 1. Clone the Repository:
 
 ```bash
-git clone https://github.com/yourusername/telegram-mp3-bot.git
+git clone https://github.com/RafaelPil/YT-MP3-Gemini-Bot.git
 cd telegram-mp3-bot
 ```
 
@@ -37,6 +37,7 @@ GEMINI_API_KEY=your_gemini_api_key
 ```
 
 ### 3. Build and Run:
+
 ```bash
 cargo build --release
 cargo run --release
