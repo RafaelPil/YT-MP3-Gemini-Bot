@@ -50,7 +50,7 @@ GEMINI_API_KEY=your_gemini_api_key
 
 ```bash
 cargo build --release
-cargo run --release
+cargo run
 ```
 
 ---
