@@ -4,7 +4,7 @@ A Rust-based Telegram bot that converts YouTube videos to MP3 and provides AI re
 
 ---
 
-![MAIN HEADER](https://res.cloudinary.com/dis6tbci7/image/upload/v1749402011/photo_2025-05-23_01-15-29_wbysld.jpg)
+![Website Preview](https://res.cloudinary.com/dis6tbci7/image/upload/v1749402011/photo_2025-05-23_01-15-29_wbysld.jpg)
 
 ---
 
